@@ -47,56 +47,6 @@ function setSeasonalBackground(month) {
     rect(0, 0, width, height);
 }
 
-function drawSeasonalElements(month, hour, minute, second) {
-    // Clear previous elements
-    clear();
-
-    // Spring: Draw flowers
-    if (month >= 3 && month <= 5) {
-        drawFlowers(minute);
-    }
-    // Summer: Draw a sun
-    else if (month >= 6 && month <= 8) {
-        drawSun(hour);
-    }
-    // Autumn: Draw falling leaves
-    else if (month >= 9 && month <= 11) {
-        drawLeaves(second);
-    }
-    // Winter: Draw snowflakes
-    else {
-        drawSnowflakes(second);
-    }
-}
-
-function drawFlowers(minute) {
-    // Simple flower representation
-    let flowerSize = map(minute, 0, 59, 10, 50);
-    fill(255, 192, 203); // Pink flowers
-    ellipse(100, 100, flowerSize, flowerSize);
-}
-
-function drawSun(hour) {
-    // Sun's position changes with the hour
-    let sunX = map(hour, 0, 23, 0, width);
-    fill(255, 204, 0); // Yellow sun
-    ellipse(sunX, 100, 50, 50);
-}
-
-function drawLeaves(second) {
-    // Leaves fall based on the second
-    let leafY = map(second, 0, 59, 0, height);
-    fill(34, 139, 34); // Green leaves
-    ellipse(300, leafY, 20, 20);
-}
-
-function drawSnowflakes(second) {
-    // Snowflakes fall based on the second
-    let flakeY = map(second, 0, 59, 0, height);
-    fill(255); // White snowflakes
-    ellipse(500, flakeY, 10, 10);
-}
-
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
